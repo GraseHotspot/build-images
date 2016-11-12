@@ -7,4 +7,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gengetopt \
     libjson0-dev \
     quilt \
+    debhelper \
     && rm -rf /var/lib/apt/lists/*
