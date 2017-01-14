@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libjson0-dev \
     quilt \
     debhelper \
+    config-package-dev php5-cli \    
     nodejs npm nodejs-legacy \
     composer \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install -g bower
-
