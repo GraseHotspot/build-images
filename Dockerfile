@@ -10,5 +10,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     debhelper \
     nodejs npm \
     && rm -rf /var/lib/apt/lists/*
-RUN npm install -h bower
+RUN npm install -g bower
 
