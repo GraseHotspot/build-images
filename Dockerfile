@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libparse-debcontrol-perl \
     nodejs npm \
     && rm -rf /var/lib/apt/lists/*
-RUN npm install -h bower
+RUN npm install -g bower
 
 RUN echo 'deb http://emdebian.org/tools/debian/ jessie main' > /etc/apt/sources.list.d/crosstools.list; curl http://emdebian.org/tools/debian/emdebian-toolchain-archive.key | apt-key add -
 RUN dpkg --add-architecture armhf; dpkg --add-architecture armel; dpkg --add-architecture i386;apt-get update
