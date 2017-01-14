@@ -9,8 +9,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     quilt \
     debhelper \
     config-package-dev \
+    dh-buildinfo \    
     libparse-debcontrol-perl \
-    config-package-dev php5-cli \    
+    config-package-dev php5-cli \
     nodejs npm nodejs-legacy \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install -g bower
