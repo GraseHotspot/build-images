@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     quilt \
     debhelper \
     dh-buildinfo \
-    config-package-dev php5-cli \
+    config-package-dev php7.0-cli \
     nodejs npm nodejs-legacy \
     composer \
     && rm -rf /var/lib/apt/lists/*
