@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libjson0-dev \
     quilt \
     debhelper \
+    dh-buildinfo \    
     nodejs npm nodejs-legacy \
     config-package-dev php5-cli \
     && rm -rf /var/lib/apt/lists/*
