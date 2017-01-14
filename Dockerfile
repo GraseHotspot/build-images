@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libjson0-dev \
     quilt \
     debhelper \
-    nodejs npm \
+    nodejs npm nodejs-legacy \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install -g bower
 
