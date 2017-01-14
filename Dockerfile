@@ -1,4 +1,4 @@
-FROM buildpack-deps:trusty
+FROM buildpack-deps:xenial
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
