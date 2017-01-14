@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     debhelper \
     config-package-dev \
     libparse-debcontrol-perl \
-    nodejs npm \
+    nodejs npm nodejs-legacy \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install -g bower
 
