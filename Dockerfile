@@ -11,5 +11,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs npm nodejs-legacy \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install -g bower
-ADD install_composer.sh
+COPY install_composer.sh install_composer.sh
 RUN ./install_composer.sh
