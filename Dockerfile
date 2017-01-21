@@ -26,5 +26,5 @@ RUN apt-get update
 RUN apt-get -y install crossbuild-essential-armhf \
   crossbuild-essential-armel git debhelper libc6-dev gengetopt libtool automake \
   libssl-dev libjson0-dev libssl-dev:armhf libjson0-dev:armhf \
-   libssl-dev:i386 libjson0-dev:i386 binutils:i386 \
+   libssl-dev:i386 libjson0-dev:i386 \
   && rm -rf /var/lib/apt/lists/*
