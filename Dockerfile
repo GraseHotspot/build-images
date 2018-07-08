@@ -1,5 +1,7 @@
 FROM buildpack-deps:xenial
 
+ENV BUMPBUILD=201807082225
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     devscripts \
