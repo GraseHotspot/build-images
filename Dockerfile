@@ -2,6 +2,10 @@ FROM buildpack-deps:trusty
 
 ENV BUMPBUILD=201807082225
 
+RUN echo deb http://security.ubuntu.com/ubuntu trusty-security main restricted \
+deb http://security.ubuntu.com/ubuntu trusty-security universe \
+deb http://security.ubuntu.com/ubuntu trusty-security multiverse >> /etc/apt/sources.list
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     devscripts \
