@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs npm nodejs-legacy \
     config-package-dev php5-cli \
     lsb-release \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install -g bower
 COPY install_composer.sh ./
