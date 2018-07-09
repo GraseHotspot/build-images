@@ -20,6 +20,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     lsb-release \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
-RUN npm install -g bower
+RUN npm set strict-ssl false && npm install -g bower
 COPY install_composer.sh ./
 RUN ./install_composer.sh
