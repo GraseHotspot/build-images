@@ -1,6 +1,11 @@
-FROM buildpack-deps:xenial
+FROM buildpack-deps:bionic
 
-ENV BUMPBUILD=201807082225
+ENV BUMPBUILD=201908022053
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gpg software-properties-common \
+    && add-apt-repository -y ppa:ondrej/php \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -11,7 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     quilt \
     debhelper \
     dh-buildinfo \
-    config-package-dev php7.0-cli \
+    config-package-dev php5.6-cli \
     nodejs npm nodejs-legacy \
     lsb-release \
     composer \
@@ -20,8 +25,8 @@ RUN npm install -g bower
 
 RUN dpkg --add-architecture armhf; dpkg --add-architecture i386
 RUN sed -i 's/deb http/deb [arch=amd64,i386] http/' /etc/apt/sources.list
-RUN echo 'deb [arch=armhf] http://ports.ubuntu.com/ xenial main universe restricted' >> /etc/apt/sources.list
-RUN echo 'deb [arch=armhf] http://ports.ubuntu.com/ xenial-updates main universe restricted' >> /etc/apt/sources.list
+RUN echo 'deb [arch=armhf] http://ports.ubuntu.com/ bionic main universe restricted' >> /etc/apt/sources.list
+RUN echo 'deb [arch=armhf] http://ports.ubuntu.com/ bionic-updates main universe restricted' >> /etc/apt/sources.list
 RUN ln -s /usr/bin/strip /usr/bin/i686-linux-gnu-strip
 
 RUN apt-get update
