@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     quilt \
     debhelper \
     dh-buildinfo \
-    config-package-dev php5.6-cli \
+    config-package-dev php5.6-cli php5.6-mysql php5.6-xml \
     nodejs \
     lsb-release \
     composer \
