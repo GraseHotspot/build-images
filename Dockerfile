@@ -1,23 +1,30 @@
 FROM buildpack-deps:bionic
 
 ENV BUMPBUILD=201908022053
+ENV    DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gpg software-properties-common \
     && add-apt-repository -y ppa:ondrej/php \
     && rm -rf /var/lib/apt/lists/*
 
+# Add ndoesource 8
+RUN curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+RUN VERSION=node_8.x; DISTRO="$(lsb_release -s -c)"; \
+    echo "deb https://deb.nodesource.com/$VERSION $DISTRO main" | tee /etc/apt/sources.list.d/nodesource.list
+
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     devscripts \
     cdbs \
     gengetopt \
-    libjson0-dev \
+    libjson-c-dev \
     quilt \
     debhelper \
     dh-buildinfo \
     config-package-dev php5.6-cli \
-    nodejs npm nodejs-legacy \
+    nodejs \
     lsb-release \
     composer \
     && rm -rf /var/lib/apt/lists/*
@@ -32,6 +39,6 @@ RUN ln -s /usr/bin/strip /usr/bin/i686-linux-gnu-strip
 RUN apt-get update
 RUN apt-get -y install crossbuild-essential-armhf \
   crossbuild-essential-armel git debhelper libc6-dev gengetopt libtool automake \
-  libssl-dev libjson0-dev libssl-dev:armhf libjson0-dev:armhf \
-   libssl-dev:i386 libjson0-dev:i386 \
+  libssl-dev libjson-c-dev libssl-dev:armhf libjson-c-dev:armhf \
+   libssl-dev:i386 libjson-c-dev:i386 \
   && rm -rf /var/lib/apt/lists/*
