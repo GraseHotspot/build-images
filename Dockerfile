@@ -3,6 +3,9 @@ FROM buildpack-deps:bionic
 ENV BUMPBUILD=201908022053
 ENV    DEBIAN_FRONTEND noninteractive
 
+RUN apt-get update && apt-get install -y --no-install-recommends lsb-release \
+    && rm -rf /var/lib/apt/lists/*
+
 # Add ndoesource 8
 RUN curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
 RUN VERSION=node_8.x; DISTRO="$(lsb_release -s -c)"; \
